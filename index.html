@@ -1,483 +1,1009 @@
-<html xmlns:o="urn:schemas-microsoft-com:office:office"
-xmlns:w="urn:schemas-microsoft-com:office:word"
-xmlns="http://www.w3.org/TR/REC-html40">
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
-<meta name=ProgId content=Word.Document>
-<meta name=Generator content="Microsoft Word 11">
-<meta name=Originator content="Microsoft Word 11">
-<link rel=File-List href="index_files/filelist.xml">
-<title>&lt;</title>
-<!--[if gte mso 9]><xml>
- <o:DocumentProperties>
-  <o:Author>bdg</o:Author>
-  <o:LastAuthor>bdg</o:LastAuthor>
-  <o:Revision>2</o:Revision>
-  <o:TotalTime>2</o:TotalTime>
-  <o:Created>2026-02-25T21:46:00Z</o:Created>
-  <o:LastSaved>2026-02-26T00:02:00Z</o:LastSaved>
-  <o:Pages>1</o:Pages>
-  <o:Words>757</o:Words>
-  <o:Characters>4315</o:Characters>
-  <o:Company>Hewlett-Packard</o:Company>
-  <o:Lines>35</o:Lines>
-  <o:Paragraphs>10</o:Paragraphs>
-  <o:CharactersWithSpaces>5062</o:CharactersWithSpaces>
-  <o:Version>11.9999</o:Version>
- </o:DocumentProperties>
-</xml><![endif]--><!--[if gte mso 9]><xml>
- <w:WordDocument>
-  <w:Zoom>50</w:Zoom>
-  <w:SpellingState>Clean</w:SpellingState>
-  <w:GrammarState>Clean</w:GrammarState>
-  <w:PunctuationKerning/>
-  <w:ValidateAgainstSchemas/>
-  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
-  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
-  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
-  <w:Compatibility>
-   <w:BreakWrappedTables/>
-   <w:SnapToGridInCell/>
-   <w:WrapTextWithPunct/>
-   <w:UseAsianBreakRules/>
-   <w:DontGrowAutofit/>
-  </w:Compatibility>
-  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
- </w:WordDocument>
-</xml><![endif]--><!--[if gte mso 9]><xml>
- <w:LatentStyles DefLockedState="false" LatentStyleCount="156">
- </w:LatentStyles>
-</xml><![endif]-->
-<style>
-<!--
- /* Style Definitions */
- p.MsoNormal, li.MsoNormal, div.MsoNormal
-	{mso-style-parent:"";
-	margin:0in;
-	margin-bottom:.0001pt;
-	mso-pagination:widow-orphan;
-	font-size:12.0pt;
-	font-family:"Times New Roman";
-	mso-fareast-font-family:"Times New Roman";}
-span.SpellE
-	{mso-style-name:"";
-	mso-spl-e:yes;}
-span.GramE
-	{mso-style-name:"";
-	mso-gram-e:yes;}
-@page Section1
-	{size:8.5in 11.0in;
-	margin:1.0in 1.25in 1.0in 1.25in;
-	mso-header-margin:.5in;
-	mso-footer-margin:.5in;
-	mso-paper-source:0;}
-div.Section1
-	{page:Section1;}
--->
-</style>
-<!--[if gte mso 10]>
-<style>
- /* Style Definitions */
- table.MsoNormalTable
-	{mso-style-name:"Table Normal";
-	mso-tstyle-rowband-size:0;
-	mso-tstyle-colband-size:0;
-	mso-style-noshow:yes;
-	mso-style-parent:"";
-	mso-padding-alt:0in 5.4pt 0in 5.4pt;
-	mso-para-margin:0in;
-	mso-para-margin-bottom:.0001pt;
-	mso-pagination:widow-orphan;
-	font-size:10.0pt;
-	font-family:"Times New Roman";
-	mso-ansi-language:#0400;
-	mso-fareast-language:#0400;
-	mso-bidi-language:#0400;}
-</style>
-<![endif]-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#0a0e27">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="icon-192.png">
+    <link rel="icon" type="image/png" href="icon-192.png">
+    <title>Checkbook Register</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --midnight: #0a0e27;
+            --slate: #1a1f3a;
+            --navy: #2a3555;
+            --pewter: #8b92ab;
+            --silver: #c4c9db;
+            --cream: #f5f6fa;
+            --gold: #d4af37;
+            --emerald: #10b981;
+            --ruby: #ef4444;
+            --sapphire: #3b82f6;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: linear-gradient(135deg, var(--midnight) 0%, var(--slate) 100%);
+            color: var(--cream);
+            min-height: 100vh;
+            padding-bottom: 80px;
+            -webkit-font-smoothing: antialiased;
+            touch-action: pan-y;
+        }
+
+        .header {
+            background: rgba(26, 31, 58, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(196, 201, 219, 0.1);
+            padding: 20px 20px 16px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            animation: slideDown 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .header h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 32px;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--cream) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .total-balance {
+            font-size: 14px;
+            color: var(--pewter);
+            font-weight: 400;
+        }
+
+        .total-amount {
+            font-size: 28px;
+            font-weight: 600;
+            color: var(--cream);
+            letter-spacing: -0.5px;
+        }
+
+        .accounts-section {
+            padding: 20px;
+            animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s backwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--silver);
+            letter-spacing: 0.3px;
+        }
+
+        .account-card {
+            background: linear-gradient(135deg, rgba(42, 53, 85, 0.6) 0%, rgba(26, 31, 58, 0.4) 100%);
+            border: 1px solid rgba(196, 201, 219, 0.15);
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 12px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .account-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold), var(--sapphire));
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .account-card.active::before,
+        .account-card:active::before {
+            opacity: 1;
+        }
+
+        .account-card:active {
+            transform: scale(0.98);
+        }
+
+        .account-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .account-name {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--cream);
+            letter-spacing: -0.2px;
+        }
+
+        .account-balance {
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .account-balance.positive { color: var(--emerald); }
+        .account-balance.negative { color: var(--ruby); }
+
+        .account-info {
+            display: flex;
+            gap: 16px;
+            margin-top: 8px;
+            font-size: 13px;
+            color: var(--pewter);
+        }
+
+        .transactions-view {
+            padding: 20px;
+            display: none;
+            animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .transactions-view.active { display: block; }
+
+        .back-button {
+            background: rgba(196, 201, 219, 0.1);
+            border: 1px solid rgba(196, 201, 219, 0.2);
+            color: var(--cream);
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            margin-bottom: 20px;
+            transition: all 0.2s;
+        }
+
+        .back-button:active {
+            background: rgba(196, 201, 219, 0.2);
+            transform: scale(0.97);
+        }
+
+        .transaction-item {
+            background: rgba(42, 53, 85, 0.4);
+            border: 1px solid rgba(196, 201, 219, 0.1);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 10px;
+            animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(10px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .transaction-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 8px;
+        }
+
+        .transaction-desc {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--cream);
+            flex: 1;
+        }
+
+        .transaction-amount {
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+            margin-left: 12px;
+        }
+
+        .transaction-amount.debit  { color: var(--ruby); }
+        .transaction-amount.credit { color: var(--emerald); }
+
+        .transaction-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            color: var(--pewter);
+        }
+
+        .transaction-balance {
+            font-weight: 500;
+            color: var(--silver);
+        }
+
+        .fab-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 200;
+        }
+
+        .fab {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gold) 0%, #b8941f 100%);
+            border: none;
+            box-shadow: 0 8px 24px rgba(212, 175, 55, 0.4);
+            cursor: pointer;
+            font-size: 28px;
+            color: var(--midnight);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            animation: fadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) 0.5s backwards;
+        }
+
+        .fab:active {
+            transform: scale(0.9);
+            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(10, 14, 39, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 300;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            animation: fadeIn 0.3s;
+        }
+
+        .modal.active { display: flex; }
+
+        .modal-content {
+            background: linear-gradient(135deg, var(--slate) 0%, var(--navy) 100%);
+            border: 1px solid rgba(196, 201, 219, 0.2);
+            border-radius: 20px;
+            padding: 30px 24px;
+            width: 100%;
+            max-width: 400px;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .modal-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 26px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: var(--cream);
+            letter-spacing: 0.3px;
+        }
+
+        .form-group { margin-bottom: 20px; }
+
+        .form-label {
+            display: block;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--silver);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .form-input, .form-select {
+            width: 100%;
+            padding: 14px 16px;
+            background: rgba(10, 14, 39, 0.6);
+            border: 1px solid rgba(196, 201, 219, 0.2);
+            border-radius: 10px;
+            color: var(--cream);
+            font-size: 16px;
+            font-family: 'DM Sans', sans-serif;
+            transition: all 0.2s;
+        }
+
+        .form-input:focus, .form-select:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+        }
+
+        .form-select option {
+            background: var(--slate);
+            color: var(--cream);
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 12px;
+            margin-top: 8px;
+        }
+
+        .radio-option { flex: 1; position: relative; }
+
+        .radio-option input { position: absolute; opacity: 0; }
+
+        .radio-label {
+            display: block;
+            padding: 12px;
+            background: rgba(10, 14, 39, 0.6);
+            border: 1px solid rgba(196, 201, 219, 0.2);
+            border-radius: 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-weight: 500;
+        }
+
+        .radio-option input:checked + .radio-label {
+            background: rgba(212, 175, 55, 0.2);
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+
+        .button-group {
+            display: flex;
+            gap: 12px;
+            margin-top: 28px;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 14px;
+            border-radius: 10px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: none;
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gold) 0%, #b8941f 100%);
+            color: var(--midnight);
+        }
+
+        .btn-primary:active {
+            transform: scale(0.97);
+            opacity: 0.9;
+        }
+
+        .btn-secondary {
+            background: rgba(196, 201, 219, 0.1);
+            border: 1px solid rgba(196, 201, 219, 0.2);
+            color: var(--cream);
+        }
+
+        .btn-secondary:active {
+            background: rgba(196, 201, 219, 0.15);
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--pewter);
+        }
+
+        .empty-state-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+            opacity: 0.5;
+        }
+
+        .empty-state-text {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .delete-btn {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            color: var(--ruby);
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            margin-top: 12px;
+            transition: all 0.2s;
+        }
+
+        .delete-btn:active {
+            background: rgba(239, 68, 68, 0.2);
+        }
+
+        .account-actions {
+            display: flex;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .account-actions button {
+            flex: 1;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 1px solid rgba(196, 201, 219, 0.2);
+            background: rgba(196, 201, 219, 0.05);
+            color: var(--silver);
+        }
+
+        .account-actions button:active {
+            background: rgba(196, 201, 219, 0.1);
+        }
+
+        .install-banner {
+            position: fixed;
+            bottom: 90px;
+            left: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, var(--gold) 0%, #b8941f 100%);
+            color: var(--midnight);
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.45);
+            display: none;
+            flex-direction: column;
+            gap: 16px;
+            z-index: 150;
+            animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .install-banner.show {
+            display: flex;
+        }
+
+        .install-banner-title {
+            font-weight: 700;
+            font-size: 17px;
+            margin-bottom: 8px;
+        }
+
+        .install-banner-text {
+            font-size: 15px;
+            line-height: 1.5;
+            flex: 1;
+        }
+
+        .install-banner strong {
+            color: var(--midnight);
+            font-weight: 700;
+        }
+
+        .install-banner .button-group {
+            display: flex;
+            gap: 12px;
+            margin-top: 12px;
+        }
+
+        .install-banner-btn,
+        .install-banner-close {
+            padding: 12px 24px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .install-banner-btn {
+            background: var(--midnight);
+            color: var(--gold);
+            border: none;
+        }
+
+        .install-banner-btn:active {
+            transform: scale(0.96);
+            opacity: 0.9;
+        }
+
+        .install-banner-close {
+            background: rgba(0,0,0,0.2);
+            color: var(--midnight);
+            border: none;
+            font-size: 24px;
+            line-height: 1;
+            padding: 8px 16px;
+        }
+
+        .install-banner-close:active {
+            opacity: 0.8;
+        }
+
+        @media (max-width: 360px) {
+            .header h1 { font-size: 28px; }
+            .total-amount { font-size: 24px; }
+        }
+    </style>
 </head>
-
-<body lang=EN-US style='tab-interval:.5in'>
-
-<div class=Section1>
-
-<p class=MsoNormal><span class=GramE>&lt;!DOCTYPE</span> html&gt;</p>
-
-<p class=MsoNormal>&lt;html <span class=SpellE><span class=GramE>lang</span></span>=&quot;en&quot;&gt;</p>
-
-<p class=MsoNormal>&lt;<span class=GramE>head</span>&gt;</p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>    </span>&lt;<span
-class=GramE>meta</span> <span class=SpellE>charset</span>=&quot;UTF-8&quot;&gt;</p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>    </span>&lt;<span
-class=GramE>meta</span> name=&quot;viewport&quot;
-content=&quot;width=device-width, initial-scale=1.0, maximum-scale=1.0,
-user-scalable=no&quot;&gt;</p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>    </span>&lt;<span
-class=GramE>meta</span> name=&quot;apple-mobile-web-app-capable&quot;
-content=&quot;yes&quot;&gt;</p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>    </span>&lt;<span
-class=GramE>meta</span> name=&quot;apple-mobile-web-app-status-bar-style&quot;
-content=&quot;black-translucent&quot;&gt;</p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>    </span>&lt;<span
-class=GramE>meta</span> name=&quot;theme-color&quot;
-content=&quot;#0a0e27&quot;&gt;</p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>    </span>&lt;link <span
-class=SpellE>rel</span>=&quot;manifest&quot; <span class=SpellE>href</span>=&quot;#&quot;
-id=&quot;manifest-placeholder&quot;&gt;</p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>    </span>&lt;link <span
-class=SpellE>rel</span>=&quot;apple-touch-icon&quot; <span class=SpellE>href</span>=&quot;<span
-class=SpellE>data:image/svg+xml</span>,&lt;<span class=SpellE>svg</span> <span
-class=SpellE>xmlns</span>='http://www.w3.org/2000/svg' <span class=SpellE>viewBox</span>='0
-0 192 192'&gt;&lt;<span class=SpellE>defs</span>&gt;&lt;<span class=SpellE>linearGradient</span>
-id='<span class=SpellE>bg</span>' x1='0%' y1='0%' x2='100%'
-y2='100%'&gt;&lt;stop offset='0%' style='stop-color:%230a0e27'/&gt;&lt;stop
-offset='100%' style='stop-color:%231a1f3a'/&gt;&lt;/<span class=SpellE>linearGradient</span>&gt;&lt;<span
-class=SpellE>linearGradient</span> id='gold' x1='0%' y1='0%' x2='100%'
-y2='100%'&gt;&lt;stop offset='0%' style='stop-color:%23d4af37'/&gt;&lt;stop
-offset='100%' style='stop-color:%23b8941f'/&gt;&lt;/<span class=SpellE>linearGradient</span>&gt;&lt;/<span
-class=SpellE>defs</span>&gt;&lt;<span class=SpellE>rect</span> width='192'
-height='192' <span class=SpellE>rx</span>='42' fill='<span class=SpellE>url</span>(%23bg)'/&gt;&lt;path
-d='M48 72h96v8H48z' fill='<span class=SpellE>url</span>(%23gold)'/&gt;&lt;path
-d='M48 96h72v8H48z' fill='%23c4c9db' opacity='0.6'/&gt;&lt;path d='M48
-112h56v8H48z' fill='%23c4c9db' opacity='0.6'/&gt;&lt;circle <span class=SpellE>cx</span>='144'
-cy='144' r='28' fill='<span class=SpellE>url</span>(%23gold)'/&gt;&lt;text
-x='144' y='156' text-anchor='middle' font-size='32' font-weight='bold'
-fill='%230a0e27'&gt;$&lt;/text&gt;&lt;/<span class=SpellE>svg</span>&gt;&quot;&gt;</p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>    </span>&lt;link <span
-class=SpellE>rel</span>=&quot;icon&quot; type=&quot;image/<span class=SpellE>svg+xml</span>&quot;
-<span class=SpellE>href</span>=&quot;<span class=SpellE>data:image/svg+xml</span>,&lt;<span
-class=SpellE>svg</span> <span class=SpellE>xmlns</span>='http://www.w3.org/2000/svg'
-<span class=SpellE>viewBox</span>='0 0 32 32'&gt;&lt;<span class=SpellE>rect</span>
-width='32' height='32' <span class=SpellE>rx</span>='7'
-fill='%230a0e27'/&gt;&lt;circle <span class=SpellE>cx</span>='24' cy='24' r='6'
-fill='%23d4af37'/&gt;&lt;text x='24' y='27' text-anchor='middle' font-size='8'
-font-weight='bold' fill='%230a0e27'&gt;$&lt;/text&gt;&lt;/<span class=SpellE>svg</span>&gt;&quot;&gt;</p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>    </span>&lt;title&gt; Checkbook
-Register&lt;/title&gt;</p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>    </span>&lt;link <span
-class=SpellE>rel</span>=&quot;<span class=SpellE>preconnect</span>&quot; <span
-class=SpellE>href</span>=&quot;https://fonts.googleapis.com&quot;&gt;</p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>    </span>&lt;link <span
-class=SpellE>rel</span>=&quot;<span class=SpellE>preconnect</span>&quot; <span
-class=SpellE>href</span>=&quot;https://fonts.gstatic.com&quot; <span
-class=SpellE>crossorigin</span>&gt;</p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>    </span>&lt;link
-href=&quot;https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&amp;family=DM+Sans:wght@400;500;600;700&amp;display=swap&quot;
-<span class=SpellE>rel</span>=&quot;<span class=SpellE>stylesheet</span>&quot;&gt;</p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>    </span>&lt;<span
-class=GramE>style</span>&gt;</p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>        </span>* {</p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>            </span><span
-class=GramE>margin</span>: 0;</p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>            </span><span
-class=GramE>padding</span>: 0;</p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>            </span><span
-class=GramE>box-sizing</span>: border-box;</p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>        </span>}</p>
-
-<p class=MsoNormal><o:p>&nbsp;</o:p></p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>        </span><span
-class=GramE>:root</span> {</p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>            </span>--<span
-class=GramE>midnight</span>: #0a0e27;</p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>            </span>--slate:
-#1a1f3a;</p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>            </span>--navy:
-#2a3555;</p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>            </span>--pewter:
-#8b92ab;</p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>            </span>--silver:
-#c4c9db;</p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>            </span>--cream:
-#f5f6fa;</p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>    </span><span
-style='mso-spacerun:yes'>        </span>--gold: #d4af37;</p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>            </span>--emerald:
-#10b981;</p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>            </span>--ruby:
-#ef4444;</p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>           
-</span>--sapphire: #3b82f6;</p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>        </span>}</p>
-
-<p class=MsoNormal><o:p>&nbsp;</o:p></p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>        </span><span
-class=GramE>body</span> {</p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>            </span><span
-class=GramE>font-family</span>: 'DM Sans', sans-serif;</p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>            </span><span
-class=GramE>background</span>: linear-gradient(135deg, <span class=SpellE>var</span>(--midnight)
-0%, <span class=SpellE>var</span>(--slate) 100%);</p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>            </span><span
-class=GramE>color</span>: <span class=SpellE>var</span>(--cream);</p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>            </span><span
-class=GramE>min-height</span>: 100vh;</p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>            </span><span
-class=GramE>padding-bottom</span>: 80px;</p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>            </span>-<span
-class=SpellE>webkit</span>-font-smoothing: <span class=SpellE>antialiased</span>;</p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>            </span><span
-class=GramE>touch-action</span>: pan-y;</p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>        </span>}</p>
-
-<p class=MsoNormal><o:p>&nbsp;</o:p></p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>        </span>.header {</p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>            </span><span
-class=GramE>background</span>: <span class=SpellE>rgba</span>(26, 31, 58, 0.8);</p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>            </span><span
-class=GramE>backdrop-filter</span>: blur(20px);</p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>            </span><span
-class=GramE>border-bottom</span>: 1px solid <span class=SpellE>rgba</span>(196,
-201, 219, 0.1);</p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>            </span><span
-class=GramE>padding</span>: 20px <span class=SpellE>20px</span> 16px;</p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>            </span><span
-class=GramE>position</span>: sticky;</p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>         </span><span
-style='mso-spacerun:yes'>   </span><span class=GramE>top</span>: 0;</p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>            </span><span
-class=GramE>z-index</span>: 100;</p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>            </span><span
-class=GramE>animation</span>: <span class=SpellE>slideDown</span> 0.6s cubic-<span
-class=SpellE>bezier</span>(0.16, 1, 0.3, 1);</p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>        </span>}</p>
-
-<p class=MsoNormal><o:p>&nbsp;</o:p></p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>        </span>@<span
-class=SpellE>keyframes</span> <span class=SpellE>slideDown</span> {</p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>            </span><span
-class=GramE>from</span> { opacity: 0; transform: <span class=SpellE>translateY</span>(-20px);
-}</p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>            </span><span
-class=GramE>to</span><span style='mso-spacerun:yes'>   </span>{ opacity: 1;
-transform: <span class=SpellE>translateY</span>(0); }</p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>        </span>}</p>
-
-<p class=MsoNormal><o:p>&nbsp;</o:p></p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>        </span>.header h1 {</p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>            </span><span
-class=GramE>font-family</span>: 'Cormorant Garamond', serif;</p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>            </span><span
-class=GramE>font-size</span>: 32px;</p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>            </span><span
-class=GramE>font-weight</span>: 300;</p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>            </span><span
-class=GramE>letter-spacing</span>: 0.5px;</p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>            </span><span
-class=GramE>margin-bottom</span>: 4px;</p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>            </span><span
-class=GramE>background</span>: linear-gradient(135deg, <span class=SpellE>var</span>(--gold)
-0%, <span class=SpellE>var</span>(--cream) 100%);</p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>            </span>-<span
-class=SpellE>webkit</span>-background-clip: text;</p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>            </span>-<span
-class=SpellE><span class=GramE>webkit</span></span><span class=GramE>-</span>text-fill-color:
-transparent;</p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>            </span><span
-class=GramE>background-clip</span>: text;</p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>        </span>}</p>
-
-<p class=MsoNormal><o:p>&nbsp;</o:p></p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>        </span>.total-balance
-{</p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>            </span><span
-class=GramE>font-size</span>: 14px;</p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>            </span><span
-class=GramE>color</span>: <span class=SpellE>var</span>(--pewter);</p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>            </span><span
-class=GramE>font-weight</span>: 400;</p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>        </span>}</p>
-
-<p class=MsoNormal><o:p>&nbsp;</o:p></p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>        </span>.total-amount
-{</p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>            </span><span
-class=GramE>font-size</span>: 28px;</p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>            </span><span
-class=GramE>font-weight</span>: 600;</p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>            </span><span
-class=GramE>color</span>: <span class=SpellE>var</span>(--cream);</p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>            </span><span
-class=GramE>letter-spacing</span>: -0.5px;</p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>        </span>}</p>
-
-<p class=MsoNormal><o:p>&nbsp;</o:p></p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>        </span>.accounts-section
-{</p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>            </span><span
-class=GramE>padding</span>: 20px;</p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>            </span><span
-class=GramE>animation</span>: <span class=SpellE>fadeIn</span> 0.8s cubic-<span
-class=SpellE>bezier</span>(0.16, 1, 0.3, 1) 0.2s backwards;</p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>        </span>}</p>
-
-<p class=MsoNormal><o:p>&nbsp;</o:p></p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>        </span>@<span
-class=SpellE>keyframes</span> <span class=SpellE>fadeIn</span> {</p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>            </span><span
-class=GramE>from</span> { opacity: 0; transform: <span class=SpellE>translateY</span>(20px);
-}</p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>            </span><span
-class=GramE>to</span><span style='mso-spacerun:yes'>   </span>{ opacity: 1;
-transform: <span class=SpellE>translateY</span>(0); }</p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>        </span>}</p>
-
-<p class=MsoNormal><o:p>&nbsp;</o:p></p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>        </span>.section-title
-{</p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>            </span><span
-class=GramE>font-family</span>: 'Cormorant Garamond', serif;</p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>            </span><span
-class=GramE>font-size</span>: 20px;</p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>            </span><span
-class=GramE>font-weight</span>: 600;</p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>            </span><span
-class=GramE>margin-bottom</span>: 12px;</p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>            </span><span
-class=GramE>color</span>: <span class=SpellE>var</span>(--silver);</p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>            </span><span
-class=GramE>letter-spacing</span>: 0.3px;</p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>        </span>}</p>
-
-<p class=MsoNormal><o:p>&nbsp;</o:p></p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>        </span>.account-card
-{</p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>            </span><span
-class=GramE>background</span>: linear-gradient(135deg, <span class=SpellE>rgba</span>(42,
-53, 85, 0.6) 0%, <span class=SpellE>rgba</span>(26, 31, 58, 0.4) 100%);</p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>            </span><span
-class=GramE>border</span>: 1px solid <span class=SpellE>rgba</span>(196, 201,
-219, 0.15);</p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>            </span><span
-class=GramE>border-radius</span>: 16px;</p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>            </span><span
-class=GramE>padding</span>: 20px;</p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>            </span><span
-class=GramE>margin-bottom</span>: 12px;</p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>            </span><span
-class=GramE>cursor</span>: pointer;</p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>            </span><span
-class=GramE>transition</span>: all 0.3s cubic-<span class=SpellE>bezier</span>(0.16,
-1, 0.3, 1);</p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>            </span><span
-class=GramE>position</span>: relative;</p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>            </span><span
-class=GramE>overflow</span>: hidden;</p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>        </span>}</p>
-
-<p class=MsoNormal><o:p>&nbsp;</o:p></p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>        </span>.account-<span
-class=SpellE>card:<span class=GramE>:before</span></span> {</p>
-
-<p class=MsoNormal><span style='mso-spacerun:yes'>            </span><span
-class=GramE>content</span></p>
-
-</div>
-
+<body>
+
+    <div class="header">
+        <h1>Checkbook Register</h1>
+        <div class="total-balance">Total Balance</div>
+        <div class="total-amount" id="totalBalance">$0.00</div>
+    </div>
+
+    <div class="accounts-section" id="accountsView">
+        <div class="section-title">Accounts</div>
+        <div id="accountsList"></div>
+        <div id="emptyAccountsState" class="empty-state" style="display: none;">
+            <div class="empty-state-icon">ðŸ’³</div>
+            <div class="empty-state-text">No accounts yet.<br>Tap the + button to create your first account.</div>
+        </div>
+    </div>
+
+    <div class="transactions-view" id="transactionsView">
+        <button class="back-button" onclick="app.showAccountsView()">â† Back to Accounts</button>
+        <div class="section-title" id="currentAccountName"></div>
+        <div class="account-actions">
+            <button onclick="app.showAddTransactionModal()">New Transaction</button>
+            <button onclick="app.showEditAccountModal()">Edit Account</button>
+        </div>
+        <div style="margin-top: 20px;" id="transactionsList"></div>
+        <div id="emptyTransactionsState" class="empty-state" style="display: none;">
+            <div class="empty-state-icon">ðŸ“</div>
+            <div class="empty-state-text">No transactions yet.<br>Tap "New Transaction" to get started.</div>
+        </div>
+    </div>
+
+    <div class="install-banner" id="installBanner">
+        <div class="install-banner-content">
+            <div class="install-banner-title">Add to Home Screen for App-Like Experience</div>
+            <div class="install-banner-text">
+                <strong>On iPhone / iPad (Safari recommended):</strong><br><br>
+                1. Tap the <strong>Share</strong> button â¬†ï¸ (square with arrow up, usually at bottom or top)<br>
+                2. Scroll down and tap <strong>Add to Home Screen</strong><br>
+                3. (Optional) Turn <strong>Open as Web App</strong> on for full-screen mode, or off for bookmark style<br>
+                4. Tap <strong>Add</strong> in the top right<br><br>
+                You'll get a real icon on your home screen â€” works offline and launches full-screen!
+            </div>
+        </div>
+        <div class="button-group">
+            <button class="install-banner-btn" id="installBtn">Got It</button>
+            <button class="install-banner-close" onclick="app.dismissInstallBanner()">Ã—</button>
+        </div>
+    </div>
+
+    <div class="fab-container">
+        <button class="fab" onclick="app.showAddAccountModal()">+</button>
+    </div>
+
+    <div class="modal" id="addAccountModal">
+        <div class="modal-content">
+            <div class="modal-title">New Account</div>
+            <form onsubmit="app.addAccount(event)">
+                <div class="form-group">
+                    <label class="form-label">Account Name</label>
+                    <input type="text" class="form-input" id="accountName" placeholder="e.g., Checking, Savings" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Starting Balance</label>
+                    <input type="number" class="form-input" id="accountBalance" placeholder="0.00" step="0.01" required>
+                </div>
+                <div class="button-group">
+                    <button type="button" class="btn btn-secondary" onclick="app.closeModal('addAccountModal')">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Create</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal" id="editAccountModal">
+        <div class="modal-content">
+            <div class="modal-title">Edit Account</div>
+            <form onsubmit="app.updateAccount(event)">
+                <div class="form-group">
+                    <label class="form-label">Account Name</label>
+                    <input type="text" class="form-input" id="editAccountName" required>
+                </div>
+                <div class="button-group">
+                    <button type="button" class="btn btn-secondary" onclick="app.closeModal('editAccountModal')">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+                <button type="button" class="delete-btn" onclick="app.deleteAccount()">Delete Account</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal" id="addTransactionModal">
+        <div class="modal-content">
+            <div class="modal-title">New Transaction</div>
+            <form onsubmit="app.addTransaction(event)">
+                <div class="form-group">
+                    <label class="form-label">Type</label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" name="type" value="debit" id="typeDebit" checked>
+                            <label class="radio-label" for="typeDebit">Debit (âˆ’)</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="type" value="credit" id="typeCredit">
+                            <label class="radio-label" for="typeCredit">Credit (+)</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Date</label>
+                    <input type="date" class="form-input" id="transactionDate" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Description</label>
+                    <input type="text" class="form-input" id="transactionDesc" placeholder="e.g., Grocery Store" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Amount</label>
+                    <input type="number" class="form-input" id="transactionAmount" placeholder="0.00" step="0.01" min="0.01" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Category (Optional)</label>
+                    <input type="text" class="form-input" id="transactionCategory" placeholder="e.g., Food, Gas, Income">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Check # (Optional)</label>
+                    <input type="text" class="form-input" id="transactionCheck" placeholder="e.g., 1001">
+                </div>
+                <div class="button-group">
+                    <button type="button" class="btn btn-secondary" onclick="app.closeModal('addTransactionModal')">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Add</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        let deferredPrompt = null;
+
+        const app = {
+            data: {
+                accounts: [],
+                currentAccountId: null
+            },
+
+            init() {
+                this.loadData();
+                this.render();
+                document.getElementById('transactionDate').valueAsDate = new Date();
+
+                const isDismissed  = localStorage.getItem('installBannerDismissed');
+                const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
+                const isIOS        = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+                const isSafari     = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+
+                if (!isDismissed && !isStandalone && isIOS && isSafari) {
+                    setTimeout(() => {
+                        document.getElementById('installBanner').classList.add('show');
+                    }, 8000);
+                }
+            },
+
+            dismissInstallBanner() {
+                document.getElementById('installBanner').classList.remove('show');
+                localStorage.setItem('installBannerDismissed', 'true');
+            },
+
+            async installApp() {
+                const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+
+                if (isIOS) {
+                    alert(`Quick steps to add to your home screen:\n\n` +
+                          `1. Tap the Share button â¬†ï¸ (square with upward arrow)\n` +
+                          `2. Scroll and tap "Add to Home Screen"\n` +
+                          `3. Optional: Turn "Open as Web App" on for full-screen experience\n` +
+                          `4. Tap "Add" in the top right\n\n` +
+                          `The app will appear as an icon â€” tap it anytime!`);
+                    this.dismissInstallBanner();
+                    return;
+                }
+
+                if (!deferredPrompt) {
+                    alert('To install this app:\n\n1. Tap the menu button (â‹®)\n2. Select "Add to Home screen" or "Install app"\n3. Follow the prompts');
+                    this.dismissInstallBanner();
+                    return;
+                }
+
+                deferredPrompt.prompt();
+                const { outcome } = await deferredPrompt.userChoice;
+                if (outcome === 'accepted') {
+                    this.dismissInstallBanner();
+                }
+                deferredPrompt = null;
+            },
+
+            loadData() {
+                const stored = localStorage.getItem('checkbookData');
+                if (stored) {
+                    this.data = JSON.parse(stored);
+                }
+            },
+
+            saveData() {
+                localStorage.setItem('checkbookData', JSON.stringify(this.data));
+            },
+
+            showAddAccountModal() {
+                document.getElementById('addAccountModal').classList.add('active');
+                document.getElementById('accountName').value = '';
+                document.getElementById('accountBalance').value = '';
+                document.getElementById('accountName').focus();
+            },
+
+            showAddTransactionModal() {
+                document.getElementById('addTransactionModal').classList.add('active');
+                document.getElementById('typeDebit').checked = true;
+                document.getElementById('transactionDate').valueAsDate = new Date();
+                document.getElementById('transactionDesc').value = '';
+                document.getElementById('transactionAmount').value = '';
+                document.getElementById('transactionCategory').value = '';
+                document.getElementById('transactionCheck').value = '';
+                document.getElementById('transactionDesc').focus();
+            },
+
+            showEditAccountModal() {
+                const account = this.data.accounts.find(a => a.id === this.data.currentAccountId);
+                if (!account) return;
+
+                document.getElementById('editAccountModal').classList.add('active');
+                document.getElementById('editAccountName').value = account.name;
+            },
+
+            closeModal(modalId) {
+                document.getElementById(modalId).classList.remove('active');
+            },
+
+            addAccount(e) {
+                e.preventDefault();
+                const name = document.getElementById('accountName').value.trim();
+                const balance = parseFloat(document.getElementById('accountBalance').value);
+
+                const account = {
+                    id: Date.now(),
+                    name,
+                    startingBalance: balance,
+                    transactions: []
+                };
+
+                this.data.accounts.push(account);
+                this.saveData();
+                this.render();
+                this.closeModal('addAccountModal');
+            },
+
+            updateAccount(e) {
+                e.preventDefault();
+                const account = this.data.accounts.find(a => a.id === this.data.currentAccountId);
+                if (!account) return;
+
+                account.name = document.getElementById('editAccountName').value.trim();
+                this.saveData();
+                this.render();
+                this.closeModal('editAccountModal');
+            },
+
+            deleteAccount() {
+                if (!confirm('Are you sure you want to delete this account and all its transactions?')) return;
+
+                this.data.accounts = this.data.accounts.filter(a => a.id !== this.data.currentAccountId);
+                this.saveData();
+                this.showAccountsView();
+                this.render();
+                this.closeModal('editAccountModal');
+            },
+
+            addTransaction(e) {
+                e.preventDefault();
+                const account = this.data.accounts.find(a => a.id === this.data.currentAccountId);
+                if (!account) return;
+
+                const type = document.querySelector('input[name="type"]:checked').value;
+                const date = document.getElementById('transactionDate').value;
+                const description = document.getElementById('transactionDesc').value.trim();
+                const amount = parseFloat(document.getElementById('transactionAmount').value);
+                const category = document.getElementById('transactionCategory').value.trim();
+                const checkNumber = document.getElementById('transactionCheck').value.trim();
+
+                const transaction = {
+                    id: Date.now(),
+                    type,
+                    date,
+                    description,
+                    amount,
+                    category,
+                    checkNumber
+                };
+
+                account.transactions.unshift(transaction);
+                this.saveData();
+                this.renderTransactions();
+                this.render();
+                this.closeModal('addTransactionModal');
+            },
+
+            showAccountsView() {
+                document.getElementById('accountsView').style.display = 'block';
+                document.getElementById('transactionsView').classList.remove('active');
+                this.data.currentAccountId = null;
+            },
+
+            showTransactionsView(accountId) {
+                this.data.currentAccountId = accountId;
+                const account = this.data.accounts.find(a => a.id === accountId);
+                if (!account) return;
+
+                document.getElementById('accountsView').style.display = 'none';
+                document.getElementById('transactionsView').classList.add('active');
+                document.getElementById('currentAccountName').textContent = account.name;
+                this.renderTransactions();
+            },
+
+            calculateBalance(account) {
+                let balance = account.startingBalance;
+                account.transactions.slice().reverse().forEach(t => {
+                    if (t.type === 'credit') balance += t.amount;
+                    else                    balance -= t.amount;
+                });
+                return balance;
+            },
+
+            formatCurrency(amount) {
+                return new Intl.NumberFormat('en-US', {
+                    style: 'currency',
+                    currency: 'USD'
+                }).format(amount);
+            },
+
+            formatDate(dateStr) {
+                const date = new Date(dateStr + 'T00:00:00');
+                return new Intl.DateTimeFormat('en-US', {
+                    month: 'short',
+                    day: 'numeric',
+                    year: 'numeric'
+                }).format(date);
+            },
+
+            render() {
+                this.renderAccounts();
+                this.renderTotalBalance();
+            },
+
+            renderTotalBalance() {
+                const total = this.data.accounts.reduce((sum, acc) => sum + this.calculateBalance(acc), 0);
+                document.getElementById('totalBalance').textContent = this.formatCurrency(total);
+            },
+
+            renderAccounts() {
+                const container = document.getElementById('accountsList');
+                const emptyState = document.getElementById('emptyAccountsState');
+
+                if (this.data.accounts.length === 0) {
+                    container.innerHTML = '';
+                    emptyState.style.display = 'block';
+                    return;
+                }
+
+                emptyState.style.display = 'none';
+                container.innerHTML = this.data.accounts.map(account => {
+                    const balance = this.calculateBalance(account);
+                    const balanceClass = balance >= 0 ? 'positive' : 'negative';
+                    const transactionCount = account.transactions.length;
+
+                    return `
+                        <div class="account-card" onclick="app.showTransactionsView(${account.id})">
+                            <div class="account-header">
+                                <div class="account-name">${account.name}</div>
+                                <div class="account-balance ${balanceClass}">${this.formatCurrency(balance)}</div>
+                            </div>
+                            <div class="account-info">
+                                <span>${transactionCount} transaction${transactionCount !== 1 ? 's' : ''}</span>
+                                <span>Starting: ${this.formatCurrency(account.startingBalance)}</span>
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+            },
+
+            renderTransactions() {
+                const account = this.data.accounts.find(a => a.id === this.data.currentAccountId);
+                if (!account) return;
+
+                const container = document.getElementById('transactionsList');
+                const emptyState = document.getElementById('emptyTransactionsState');
+
+                if (account.transactions.length === 0) {
+                    container.innerHTML = '';
+                    emptyState.style.display = 'block';
+                    return;
+                }
+
+                emptyState.style.display = 'none';
+                let runningBalance = account.startingBalance;
+                const reversedTransactions = account.transactions.slice().reverse();
+
+                container.innerHTML = reversedTransactions.map((t, index) => {
+                    if (t.type === 'credit') runningBalance += t.amount;
+                    else                    runningBalance -= t.amount;
+
+                    const sign = t.type === 'debit' ? 'âˆ’' : '+';
+                    const categoryText = t.category ? ` â€¢ ${t.category}` : '';
+                    const checkText = t.checkNumber ? ` â€¢ #${t.checkNumber}` : '';
+
+                    return `
+                        <div class="transaction-item" style="animation-delay: ${index * 0.05}s">
+                            <div class="transaction-header">
+                                <div class="transaction-desc">${t.description}</div>
+                                <div class="transaction-amount ${t.type}">${sign}${this.formatCurrency(t.amount)}</div>
+                            </div>
+                            <div class="transaction-meta">
+                                <span>${this.formatDate(t.date)}${categoryText}${checkText}</span>
+                                <span class="transaction-balance">Bal: ${this.formatCurrency(runningBalance)}</span>
+                            </div>
+                        </div>
+                    `;
+                }).reverse().join('');
+            }
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            app.init();
+        });
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+        });
+
+        document.getElementById('installBtn').addEventListener('click', () => {
+            app.installApp();
+        });
+
+        window.addEventListener('appinstalled', () => {
+            deferredPrompt = null;
+            app.dismissInstallBanner();
+        });
+
+        // Register service worker for PWA install support
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/checkbook6/sw.js')
+                    .then(reg => console.log('Service Worker registered:', reg.scope))
+                    .catch(err => console.warn('Service Worker registration failed:', err));
+            });
+        }
+    </script>
 </body>
-
 </html>
